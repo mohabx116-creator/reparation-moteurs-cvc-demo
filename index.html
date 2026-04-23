@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reparation de moteurs CVC carte electronique defaillante | City Electronique</title>
-    <meta name="description" content="Atelier City Electronique : reparation sur mesure des cartes electroniques embarquees dans les moteurs de climatisation, ventilation et chauffage, avec diagnostic CVC a 79 EUR et 99 EUR.">
+    <title>Réparation de moteurs CVC carte électronique défaillante | City Électronique</title>
+    <meta name="description" content="Atelier City Électronique : réparation sur mesure des cartes électroniques embarquées dans les moteurs de climatisation, ventilation et chauffage, avec diagnostic CVC à 79 € et 99 €.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-        tailwind = window.tailwind || {};
-        tailwind.config = {
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ["Montserrat", "Helvetica", "sans-serif"]
+                        sans: ["Montserrat", "Helvetica", "Arial", "sans-serif"]
                     }
                 }
             }
@@ -30,7 +30,12 @@
             --color-text-secondary: #585B5D;
             --color-light: #F4F6F9;
             --color-cta: #ffcc00;
+            --color-cta-hover: #e6b800;
             --color-success: #54AE32;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         html {
@@ -39,9 +44,10 @@
 
         body {
             margin: 0;
-            font-family: "Montserrat", Helvetica, sans-serif;
+            font-family: "Montserrat", Helvetica, Arial, sans-serif;
             color: var(--color-text);
-            background-color: #ffffff;
+            background: #ffffff;
+            line-height: 1.55;
             overflow-x: hidden;
         }
 
@@ -49,62 +55,32 @@
             text-decoration: none;
         }
 
-        .hero-pcb-atelier {
-            background-image:
-                linear-gradient(90deg, rgba(51, 0, 102, 0.93) 0%, rgba(49, 39, 96, 0.88) 42%, rgba(32, 32, 32, 0.62) 100%),
-                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");
-            background-position: center;
-            background-size: cover;
-            overflow: hidden;
+        .site-shell {
+            min-height: 100vh;
+            background: #ffffff;
         }
 
-        .hero-pcb-atelier::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 18% 20%, rgba(255, 204, 0, 0.18), transparent 24%),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-            background-size: auto, 38px 38px, 38px 38px;
-            opacity: 0.35;
-            pointer-events: none;
+        .top-header {
+            background: #ffffff;
+            border-top: 5px solid var(--color-primary);
+            box-shadow: 0 6px 22px rgba(24, 24, 24, 0.08);
         }
 
-        .hero-pcb-atelier .relative {
-            z-index: 2;
+        .site-logo {
+            color: var(--color-primary);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
         }
 
-        .hero-pcb-atelier h1,
-        .hero-pcb-atelier h2 {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            background-color: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 0.42rem 0.85rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .reveal,
-        .reveal.active {
-            opacity: 1;
-            transform: none;
-        }
-
-        #diagnostic {
-            scroll-margin-top: 110px;
-        }
-
-        [x-cloak] {
-            display: none !important;
+        .site-logo small {
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            margin-top: 0.15rem;
+            text-transform: uppercase;
         }
 
         .nav-link {
@@ -116,28 +92,121 @@
             color: var(--color-accent);
         }
 
-        .btn-yellow {
-            background-color: var(--color-cta);
+        .group:hover .group-hover\:visible {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .relative.group .absolute {
+            z-index: 1000;
+        }
+
+        details > summary {
+            list-style: none;
+        }
+
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .hero-pcb-atelier {
+            position: relative;
+            background-color: #220044;
+            background-image:
+                linear-gradient(90deg, rgba(51, 0, 102, 0.94) 0%, rgba(49, 39, 96, 0.90) 45%, rgba(33, 22, 44, 0.75) 100%),
+                url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .hero-pcb-atelier::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+                radial-gradient(circle at 20% 18%, rgba(255, 204, 0, 0.18), transparent 24%);
+            background-size: 34px 34px, 34px 34px, auto;
+            opacity: 0.33;
+            pointer-events: none;
+        }
+
+        .hero-pcb-atelier > .relative {
+            z-index: 1;
+        }
+
+        .hero-pcb-atelier h1,
+        .hero-pcb-atelier h2 {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.15rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(3px);
+            font-weight: 600;
+        }
+
+        .ce-cta {
+            background: var(--color-cta);
             color: #000000;
             font-weight: 600;
-            border-radius: 0.5rem;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.18);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .btn-yellow:hover {
-            background-color: #e6b800;
+        .ce-cta:hover {
+            background: var(--color-cta-hover);
+            box-shadow: 0 10px 24px rgba(230, 184, 0, 0.22);
         }
 
-        .btn-outline-site {
+        .ce-outline {
             border: 2px solid var(--color-primary);
             color: var(--color-primary);
-            background-color: transparent;
+            background: transparent;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        .btn-outline-site:hover {
-            background-color: var(--color-primary);
+        .ce-outline:hover {
+            background: var(--color-primary);
             color: #ffffff;
+        }
+
+        .ce-section-light {
+            background: var(--color-light);
+        }
+
+        .ce-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            box-shadow: 0 3px 14px rgba(15, 23, 42, 0.05);
+        }
+
+        .ce-card:hover {
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .ce-note {
+            background: #ffffff;
+            border-left: 9px solid var(--color-cta);
+            border-radius: 0.8rem;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .faq-item {
+            background: #f9fafb;
+            border: 1px solid #9ca3af;
+            border-radius: 0.75rem;
         }
 
         .footer-link {
@@ -148,536 +217,592 @@
         .footer-link:hover {
             color: var(--color-primary);
         }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        @media (max-width: 767px) {
+            .hero-pcb-atelier {
+                background-position: center top;
+            }
+        }
     </style>
 </head>
-<body x-data="{ mobileMenu: false }" class="font-sans antialiased">
-    <header class="fixed top-0 left-0 w-full z-[2000] bg-white border-t-[5px] border-[#330066] shadow-md">
-        <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between py-4">
-                <a href="https://city-electronique.fr/" class="flex items-center shrink-0">
-                    <span class="text-[#330066] text-xl sm:text-2xl font-bold tracking-tight">CITY Electronique</span>
-                </a>
+<body class="font-sans antialiased">
+    <div class="site-shell">
+        <header class="fixed top-0 left-0 w-full z-[2000] top-header">
+            <div class="px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between py-4">
+                    <a href="https://city-electronique.fr/" class="flex items-center shrink-0">
+                        <span class="site-logo text-xl sm:text-2xl">
+                            CITY Électronique
+                            <small>Atelier électronique</small>
+                        </span>
+                    </a>
+                    <nav class="hidden xl:flex items-center gap-8 text-[#330066] font-medium text-[15px] relative">
+                        <div class="relative group">
+                            <a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="nav-link flex items-center gap-1">
+                                Atelier
+                                <span class="text-xs">▼</span>
+                            </a>
+                            <div class="absolute left-0 top-full mt-2 w-64 bg-white border shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[2100]">
+                                <a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="block px-4 py-2 hover:bg-[#f3f3f3] border-b border-gray-300">Reparation sur mesure</a>
+                                <a href="https://city-electronique.fr/boutique" class="block px-4 py-2 hover:bg-[#f3f3f3]">Reparation a prix fixe</a>
+                            </div>
+                        </div>
+                        <a href="https://city-electronique.fr/partenaires" class="nav-link">Partenaires</a>
+                        <a href="https://city-electronique.fr/valorisation" class="nav-link">Valorisation</a>
+                        <a href="https://city-electronique.fr/reserve-nationale" class="nav-link">Reserve nationale</a>
+                        <a href="https://city-electronique.fr/approuve-par-les-clients-professionnels/" class="nav-link">References</a>
+                        <div class="relative group">
+                            <button type="button" class="nav-link flex items-center gap-1">
+                                Contact
+                                <span class="text-xs">▼</span>
+                            </button>
+                            <div class="absolute left-0 top-full mt-2 w-64 bg-white border shadow-md rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[2100]">
+                                <a href="https://city-electronique.fr/lequipe-de-city-electronique/" class="block px-4 py-2 hover:bg-[#f3f3f3] border-b border-gray-300">L'equipe</a>
+                                <a href="https://city-electronique.fr/les-questions-frequentes/" class="block px-4 py-2 hover:bg-[#f3f3f3]">Vos questions</a>
+                            </div>
+                        </div>
+                        <a href="https://zr.city-electronique.fr/auth/login" target="_blank" rel="noopener" class="ml-2 bg-[#ffcc00] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#e6b800] transition">Espace client</a>
+                    </nav>
 
-                <nav class="hidden xl:flex items-center gap-8 text-[#330066] font-medium text-[15px]">
-                    <a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="nav-link">Atelier</a>
+                    <button id="menuBtn" type="button" class="xl:hidden text-[#330066] font-semibold text-sm border border-[#330066] rounded-md px-3 py-2">
+                        Menu
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="hidden xl:hidden bg-white border-t w-full">
+                <nav class="flex flex-col gap-4 px-6 py-4 text-[#330066] font-medium">
+                    <details class="group">
+                        <summary class="cursor-pointer">Atelier</summary>
+                        <div class="flex flex-col pl-8 mt-2 space-y-1">
+                            <a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="nav-link py-1">Reparation sur mesure</a>
+                            <a href="https://city-electronique.fr/boutique" class="nav-link py-1">Reparation a prix fixe</a>
+                        </div>
+                    </details>
                     <a href="https://city-electronique.fr/partenaires" class="nav-link">Partenaires</a>
                     <a href="https://city-electronique.fr/valorisation" class="nav-link">Valorisation</a>
                     <a href="https://city-electronique.fr/reserve-nationale" class="nav-link">Reserve nationale</a>
                     <a href="https://city-electronique.fr/approuve-par-les-clients-professionnels/" class="nav-link">References</a>
-                    <a href="https://city-electronique.fr/les-questions-frequentes/" class="nav-link">Contact</a>
-                    <a href="https://zr.city-electronique.fr/auth/login" target="_blank" rel="noopener" class="ml-2 bg-[#ffcc00] text-black px-4 py-2 rounded-lg font-semibold hover:bg-[#e6b800] transition">Espace client</a>
-                </nav>
-
-                <button type="button" class="xl:hidden text-[#330066] font-semibold text-sm border border-[#330066] rounded-md px-3 py-2" @click="mobileMenu = !mobileMenu">
-                    Menu
-                </button>
-            </div>
-        </div>
-
-        <div x-show="mobileMenu" x-cloak class="xl:hidden bg-white border-t w-full" style="display: none;">
-            <nav class="flex flex-col gap-4 px-6 py-4 text-[#330066] font-medium">
-                <a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="nav-link">Atelier</a>
-                <a href="https://city-electronique.fr/partenaires" class="nav-link">Partenaires</a>
-                <a href="https://city-electronique.fr/valorisation" class="nav-link">Valorisation</a>
-                <a href="https://city-electronique.fr/reserve-nationale" class="nav-link">Reserve nationale</a>
-                <a href="https://city-electronique.fr/approuve-par-les-clients-professionnels/" class="nav-link">References</a>
-                <a href="https://city-electronique.fr/les-questions-frequentes/" class="nav-link">Contact</a>
-                <a href="https://zr.city-electronique.fr/auth/login" target="_blank" rel="noopener" class="mt-2 bg-[#ffcc00] text-black px-4 py-2 rounded-lg font-semibold text-center">Espace client</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="pt-[70px]">
-        <section class="relative bg-white py-24 hero-pcb-atelier shadow-2xl">
-            <div class="relative container mx-auto px-6 reveal active">
-                <div class="max-w-3xl text-center md:text-left">
-                    <span class="rating-badge text-gray-200 text-xs sm:text-md">
-                        CITY Electronique
-                        <span class="px-1 font-semibold"> - </span>
-                        <span class="text-[#ffcc00] font-semibold">Atelier</span>
-                    </span>
-
-                    <h1 class="text-3xl sm:text-5xl font-bold text-white mt-6">
-                        Reparation de moteurs CVC carte electronique defaillante
-                    </h1>
-
-                    <h2 class="text-lg sm:text-3xl font-semibold text-white mt-6">
-                        Nous reparons les cartes electroniques embarquees dans vos moteurs de climatisation, ventilation et chauffage (CVC).
-                    </h2>
-
-                    <ul class="space-y-3 text-white my-6 max-w-5xl">
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">&#10003;</span>
-                            <span class="text-lg leading-snug">Climatisation gainable et split</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">&#10003;</span>
-                            <span class="text-lg leading-snug">Ventilo-convecteurs et unites de traitement d'air</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">&#10003;</span>
-                            <span class="text-lg leading-snug">Pompes a chaleur et systemes de chauffage</span>
-                        </li>
-                    </ul>
-
-                    <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                        <a href="/choix-de-reparation-electronique/#diagnostic" class="bg-[#ffcc00] text-md text-center sm:text-xl text-black font-semibold px-8 py-3 rounded-lg hover:bg-[#e6b800] transition">
-                            Faire analyser une carte electronique
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-[#F4F6F9]">
-            <div class="container max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#330066] mb-4">Quand faire appel a l'atelier CITY Electronique ?</h2>
-                <div class="mx-auto max-w-4xl">
-                    <p class="text-lg text-gray-700 mb-6 text-center">
-                        Notre atelier s'adresse aux situations ou une panne moteur devient <span class="font-semibold">une contrainte d'exploitation.</span>
-                    </p>
-                    <p class="text-base text-[#585B5D] mb-12 text-center max-w-3xl mx-auto leading-relaxed">
-                        Il s'agit d'une <span class="font-semibold text-[#202020]">reparation sur mesure</span> : diagnostic d'ingenierie puis proposition adaptee a la carte moteur concernee.
-                        Cette approche s'impose lorsque l'origine de panne semble situee sur l'electronique embarquee et qu'un remplacement complet ne constitue pas une reponse immediate.
-                    </p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                            <span class="text-lg leading-snug"><span class="font-semibold">Moteur CVC a l'arret</span> ou fonctionnement degrade</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                            <span class="text-lg leading-snug"><span class="font-semibold">Carte electronique embarquee</span> obsolete, indisponible ou introuvable</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                            <span class="text-lg leading-snug"><span class="font-semibold">Vitesse instable</span> ou commande moteur incoherente</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                            <span class="text-lg leading-snug"><span class="font-semibold">Panne intermittente</span> sur ventilation, chauffage ou climatisation</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                            <span class="text-lg leading-snug"><span class="font-semibold">Absence de solution constructeur</span> economiquement pertinente</span>
-                        </li>
-                    </ul>
-                    <p class="text-lg text-gray-700 mt-4">
-                        Dans ces contextes, remplacer le moteur sans confirmer l'origine electronique peut deplacer le probleme sans le traiter.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-white">
-            <div class="container max-w-6xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-6">Pourquoi ce n'est pas un simple remplacement ?</h2>
-                <div class="mx-auto">
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Sur un moteur CVC, la carte electronique embarquee pilote l'alimentation, la variation de vitesse, la commutation et une partie des securites. Lorsqu'elle derive ou se degrade, le moteur peut sembler hors service alors que la defaillance reelle se concentre sur l'electronique de commande.
-                    </p>
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Remplacer l'ensemble moteur et carte n'est donc pas toujours la reponse la plus juste. Le cout peut etre eleve, la reference parfois indisponible, et l'echange complet ne documente pas necessairement la cause initiale de la panne.
-                    </p>
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Des remplacements successifs sans analyse de cause racine peuvent meme aggraver la situation : contrainte thermique non corrigee, etage de puissance surcharge, defaut peripherique ou environnement electrique degrade.
-                    </p>
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Notre approche repose sur <span class="font-semibold">l'ingenierie de reparation</span>, pas sur le remplacement opportuniste d'un sous-ensemble.
-                    </p>
-
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Notre approche d'ingenierie de reparation :
-                    </p>
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
-                        Chaque carte moteur confiee a l'atelier fait l'objet d'une analyse <span class="font-semibold">structuree</span>.
-                    </p>
-                    <div class="max-w-5xl mx-auto mb-6">
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">&#10003;</span>
-                                <span class="text-lg leading-snug">Analyse fonctionnelle de la carte moteur</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">&#10003;</span>
-                                <span class="text-lg leading-snug">Identification des composants de puissance et de commande</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">&#10003;</span>
-                                <span class="text-lg leading-snug">Verification des causes de surchauffe ou de contrainte</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">&#10003;</span>
-                                <span class="text-lg leading-snug">Fiabilisation des zones critiques</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-12">
-                        L'objectif n'est pas uniquement de remettre le moteur en service, mais de reduire <span class="font-semibold">durablement</span> le risque de recidive sur la carte concernee.
-                    </p>
-
-                    <div id="diagnostic" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch max-w-6xl mx-auto">
-                        <div class="group bg-white border border-gray-200 rounded-2xl p-8 sm:p-10 shadow-sm flex flex-col h-full min-h-0 transition-shadow duration-200 hover:shadow-md hover:border-gray-300">
-                            <header class="shrink-0 text-center border-b border-gray-100 pb-6">
-                                <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight px-1">
-                                    Diagnostic CVC
-                                </h3>
-                                <p class="text-4xl sm:text-5xl font-bold text-[#330066] mb-4 tabular-nums">
-                                    79 EUR <span class="font-semibold text-xl sm:text-2xl text-[#585B5D]">TTC</span>
-                                </p>
-                                <p class="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
-                                    Analyse technique de la carte electronique embarquee du moteur et evaluation de faisabilite.
-                                </p>
-                            </header>
-
-                            <div class="flex-1 flex flex-col min-h-0 pt-6">
-                                <ul class="space-y-3 text-gray-700">
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Pre-analyse</span> et etude de faisabilite</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Identification des composants de commande ou de puissance defaillants</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Analyse progressive</span> des mecanismes de panne</span>
-                                    </li>
-                                </ul>
-
-                                <p class="font-semibold text-[#312760] text-sm uppercase tracking-wide mt-8 mb-3">Ideal pour</p>
-                                <ul class="space-y-3 text-gray-700">
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Moteurs CVC standards ou semi-industriels</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Dysfonctionnements intermittents ou persistants</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Equipements hors garantie ou difficiles a remplacer</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="shrink-0 mt-auto pt-8 border-t border-gray-100">
-                                <a target="_blank" rel="noopener noreferrer" href="https://zr.city-electronique.fr/client-deal?diagnostic_type=expert" class="flex w-full min-h-[3rem] items-center justify-center gap-2 bg-[#ffcc00] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#e6b800] transition text-center text-sm sm:text-base leading-snug focus:outline-none focus:ring-2 focus:ring-[#330066] focus:ring-offset-2">
-                                    Lancer un diagnostic CVC
-                                </a>
-                            </div>
+                    <details class="group">
+                        <summary class="cursor-pointer">Contact</summary>
+                        <div class="flex flex-col pl-8 mt-2 space-y-1">
+                            <a href="https://city-electronique.fr/lequipe-de-city-electronique/" class="nav-link py-1">L'equipe</a>
+                            <a href="https://city-electronique.fr/les-questions-frequentes/" class="nav-link py-1">Vos questions</a>
                         </div>
-
-                        <div class="group bg-white border border-gray-200 rounded-2xl p-8 sm:p-10 shadow-sm flex flex-col h-full min-h-0 transition-shadow duration-200 hover:shadow-md hover:border-gray-300">
-                            <header class="shrink-0 text-center border-b border-gray-100 pb-6">
-                                <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight px-1">
-                                    Diagnostic CVC prioritaire
-                                </h3>
-                                <p class="text-4xl sm:text-5xl font-bold text-[#330066] mb-4 tabular-nums">
-                                    99 EUR <span class="font-semibold text-xl sm:text-2xl text-[#585B5D]">TTC</span>
-                                </p>
-                                <p class="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
-                                    Pour les equipements critiques necessitant une prise en charge prioritaire.
-                                </p>
-                            </header>
-
-                            <div class="flex-1 flex flex-col min-h-0 pt-6">
-                                <ul class="space-y-3 text-gray-700">
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Tout le diagnostic CVC</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Priorisation</span> de l'analyse</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Photos annotees</span> et retour plus documente</span>
-                                    </li>
-                                </ul>
-
-                                <p class="font-semibold text-[#312760] text-sm uppercase tracking-wide mt-8 mb-3">Ideal pour</p>
-                                <ul class="space-y-3 text-gray-700">
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Installations CVC critiques</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Sites professionnels avec impact d'exploitation</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                        <span class="text-base text-gray-700 leading-snug">Besoin de tracabilite technique accrue</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="shrink-0 mt-auto pt-8 border-t border-gray-100">
-                                <a target="_blank" rel="noopener noreferrer" href="https://zr.city-electronique.fr/client-deal?diagnostic_type=urgent" class="flex w-full min-h-[3rem] items-center justify-center gap-2 bg-[#ffcc00] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#e6b800] transition text-center text-sm sm:text-base leading-snug focus:outline-none focus:ring-2 focus:ring-[#330066] focus:ring-offset-2">
-                                    Lancer un diagnostic CVC prioritaire
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-[#F4F6F9]">
-            <div class="container max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-12">Comment se deroule la prise en charge ?</h2>
-                <div class="mx-auto max-w-3xl">
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl text-[#ffcc00]">1.</span>
-                            <span class="text-lg">Vous identifiez le symptome ou le moteur concerne</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl text-[#ffcc00]">2.</span>
-                            <span class="text-lg">Vous choisissez le niveau de diagnostic adapte</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl text-[#ffcc00]">3.</span>
-                            <span class="text-lg">Nous analysons la carte electronique embarquee du moteur</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="font-bold text-xl text-[#ffcc00]">4.</span>
-                            <span class="text-lg">Un retour clair vous est transmis avant toute reparation</span>
-                        </li>
-                    </ul>
-                    <div class="mt-12">
-                        <div class="bg-white border-l-[9px] border-l-[#ffcc00] rounded-xl p-4 shadow-sm">
-                            <p class="text-gray-700 font-semibold text-start">Aucune reparation n'est engagee sans validation prealable.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 pt-16 bg-white">
-            <div class="container max-w-6xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-4">Cas courants de prise en charge</h2>
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-lg text-gray-700 text-center">
-                        Nous intervenons sur des moteurs CVC dont le comportement laisse suspecter une defaillance de la carte electronique embarquee plutot qu'une panne purement mecanique.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                        <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Climatisation gainable et split</h3>
-                        <p class="text-gray-700 text-base leading-relaxed mb-6">
-                            Moteurs de soufflage avec defaut de demarrage, vitesse irreguliere ou arret aleatoire lie a la carte de commande integree.
-                        </p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Commande de vitesse</span> incoherente</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Arrets intermittents</span> en demande froid ou chaud</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug">Carte difficile a remplacer sur reference ancienne</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                        <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Ventilo-convecteurs et unites de traitement d'air</h3>
-                        <p class="text-gray-700 text-base leading-relaxed mb-6">
-                            Moteurs de ventilation sur installations tertiaires ou techniques avec defaut recurrent sur regime, maintien en service ou pilotage.
-                        </p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Petite ou grande vitesse</span> non tenue</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Panne intermittente</span> sur ventilation ou reprise d'air</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug">Remplacement complet peu pertinent economiquement</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                        <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Pompes a chaleur et systemes de chauffage</h3>
-                        <p class="text-gray-700 text-base leading-relaxed mb-6">
-                            Moteurs et cartes associes soumis a humidite, temperature ou contraintes de charge, avec panne recurrente sur la commande.
-                        </p>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Moteur a l'arret</span> alors que la carte pilote mal</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Composants de puissance</span> echauffes ou contraints</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">&#10003;</span>
-                                <span class="text-base text-gray-700 leading-snug">Besoin d'arbitrer entre reparation et remplacement</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 pt-16 bg-[#F4F6F9]">
-            <div class="container max-w-5xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-16">Reparation ou remplacement : comment choisir ?</h2>
-                <div class="max-w-4xl mx-auto">
-                    <p class="font-semibold text-gray-700 text-lg">
-                        Lorsque la mecanique du moteur reste exploitable et que la panne se concentre sur la carte electronique embarquee, une reparation de l'electronique peut eviter le remplacement complet de l'ensemble.
-                    </p>
-                    <p class="font-semibold text-gray-700 text-lg mt-3">
-                        Si le bobinage, l'isolement, le rotor ou l'environnement de charge presentent une defaillance structurelle, le remplacement complet peut rester la bonne decision. Le diagnostic sert a trancher entre ces deux voies.
-                    </p>
-                    <div class="mt-8 flex flex-wrap gap-4 justify-center">
-                        <a href="/choix-de-reparation-electronique/#diagnostic" class="text-xl text-center font-semibold px-8 py-3 rounded-lg border-2 border-[#330066] text-[#330066] bg-transparent hover:bg-[#330066] hover:text-white transition-colors duration-200">
-                            Faire analyser une carte moteur CVC
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white py-24">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="mb-12">
-                    <h2 class="text-4xl font-bold text-[#330066]">Questions frequentes</h2>
-                </div>
-                <div class="space-y-4">
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">Reparez-vous les cartes de moteurs de climatisation ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            Oui. Nous intervenons sur des cartes electroniques embarquees dans des moteurs de climatisation, de ventilation et de chauffage, selon le type de moteur et la nature de la panne constatee.
-                        </div>
-                    </div>
-
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">Faut-il remplacer tout le moteur ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            Pas systematiquement. Si la defaillance est localisee sur la carte electronique embarquee et que le reste du moteur reste exploitable, une reparation ciblee peut etre plus pertinente qu'un remplacement complet.
-                        </div>
-                    </div>
-
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">Intervenez-vous sur pompes a chaleur et ventilation ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            Oui. Nous prenons en charge des cartes de moteurs issues de pompes a chaleur, de ventilo-convecteurs, d'unites de traitement d'air et d'autres systemes de ventilation lorsque l'origine electronique est suspectee.
-                        </div>
-                    </div>
-
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">Que se passe-t-il si la carte est obsolete ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            L'obsolescence ou l'indisponibilite constructeur fait partie des situations qui justifient un diagnostic d'ingenierie. Nous evaluons alors si la carte peut etre reparee et fiabilisee dans des conditions techniquement pertinentes.
-                        </div>
-                    </div>
-
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">La reparation est-elle garantie ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            Oui. Toute reparation validee est couverte par une garantie, definie selon le contexte d'utilisation et les conditions de fonctionnement de l'equipement.
-                        </div>
-                    </div>
-
-                    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-400 rounded-lg">
-                        <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
-                            <span class="text-gray-900 font-medium text-lg">Comment savoir si la panne vient de la carte electronique ?</span>
-                            <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
-                        </button>
-                        <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
-                            Un moteur a l'arret, une vitesse incoherente ou un defaut intermittent ne suffisent pas a eux seuls. Un controle terrain reste necessaire. Si l'origine semble electronique, nous prenons ensuite le relais sur la carte embarquee.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-[#f9f9f9] text-[#202020] mt-12">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h5 class="text-[#330066] font-bold mb-4">City Electronique</h5>
-                    <p class="text-sm text-[#585B5D] mb-2">
-                        Adresse sur rendez-vous uniquement<br>
-                        26 chemin de la Violette<br>
-                        31240 L'Union<br>
-                        France
-                    </p>
-                    <p class="text-sm text-[#585B5D] mb-2">
-                        Du lundi au vendredi : 10h00 - 16h00<br>
-                        Ferme le samedi et le dimanche
-                    </p>
-                    <p class="text-sm text-[#585B5D] mb-2">
-                        Accueil telephonique : <a href="tel:+33554547749" class="underline hover:text-[#330066]">+33 5 54 54 77 49</a>
-                    </p>
-                    <p class="text-sm text-[#585B5D]">
-                        Souscription via formulaire en ligne : disponible du lundi au dimanche
-                    </p>
-                </div>
-
-                <div>
-                    <h5 class="text-[#312760] font-bold mb-4">Navigation</h5>
-                    <ul class="space-y-2 text-sm text-[#585B5D]">
-                        <li><a href="https://city-electronique.fr/" class="footer-link">Accueil</a></li>
-                        <li><a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="footer-link">L'Atelier</a></li>
-                        <li><a href="https://city-electronique.fr/valorisation" class="footer-link">Valorisation</a></li>
-                        <li><a href="https://city-electronique.fr/les-questions-frequentes/" class="footer-link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-[#312760] font-bold mb-4">Bon a savoir</h5>
-                    <ul class="space-y-2 text-sm text-[#585B5D]">
-                        <li><a href="https://city-electronique.fr/qu-est-ce-que-le-taux-de-reparabilite/" class="footer-link">Qu'est-ce que le taux de reparabilite</a></li>
-                        <li><a href="https://city-electronique.fr/2024/12/27/comment-nous-evaluons-les-chances-de-reparation-chez-city-electronique/" class="footer-link">Comment nous evaluons les chances de reparation</a></li>
-                        <li><a href="https://city-electronique.fr/2024/12/10/technicien-vs-ingenieur-comprendre-la-difference-cruciale-dans-la-reparation-electronique/" class="footer-link">Difference entre technicien et ingenieur</a></li>
-                        <li><a href="https://city-electronique.fr/2022/09/10/pre-etude-electronique-on-vous-explique-tout/" class="footer-link">La pre-etude c'est quoi</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr class="my-8 border-[#dcdcdc]">
-
-            <div class="text-center mb-2">
-                <nav class="flex flex-wrap justify-center gap-6 text-sm text-[#585B5D]">
-                    <a href="https://city-electronique.fr/" class="footer-link">&copy; 2026 CITY Electronique. Tous droits reserves.</a>
-                    <a href="https://city-electronique.fr/mentions-legales/" class="footer-link">Mentions legales</a>
-                    <a href="https://city-electronique.fr/politique-de-confidentialite/" class="footer-link">Politique de confidentialite</a>
-                    <a href="https://city-electronique.fr/conditions-generales-de-vente/" class="footer-link">Conditions generales de vente</a>
+                    </details>
+                    <a href="https://zr.city-electronique.fr/auth/login" target="_blank" rel="noopener" class="mt-2 bg-[#ffcc00] text-black px-4 py-2 rounded-lg font-semibold text-center">Espace client</a>
                 </nav>
             </div>
-        </div>
-    </footer>
+        </header>
+
+        <main class="pt-[74px]">
+            <section class="relative bg-white py-24 hero-pcb-atelier shadow-2xl">
+                <div class="relative container mx-auto px-6 reveal active">
+                    <div class="max-w-3xl text-center md:text-left">
+                        <span class="rating-badge text-gray-200 text-xs sm:text-sm">
+                            CITY Électronique
+                            <span class="px-1 font-semibold"> – </span>
+                            <span class="text-[#ffcc00] font-semibold">Atelier</span>
+                        </span>
+
+                        <h1 class="text-3xl sm:text-5xl font-bold text-white mt-6">
+                            Réparation de moteurs CVC carte électronique défaillante
+                        </h1>
+
+                        <h2 class="text-lg sm:text-3xl font-semibold text-white mt-6">
+                            Nous réparons les cartes électroniques embarquées dans vos moteurs de climatisation, ventilation et chauffage (CVC).
+                        </h2>
+
+                        <ul class="space-y-3 text-white my-6 max-w-5xl">
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">✔</span>
+                                <span class="text-lg leading-snug">Climatisation gainable et split</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">✔</span>
+                                <span class="text-lg leading-snug">Ventilo-convecteurs et unités de traitement d'air</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-white">✔</span>
+                                <span class="text-lg leading-snug">Pompes à chaleur et systèmes de chauffage</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a href="https://city-electronique.fr/choix-de-reparation-electronique/#diagnostic" class="ce-cta text-md text-center sm:text-xl px-8 py-3 rounded-lg">
+                                Faire analyser une carte électronique
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 ce-section-light">
+                <div class="container max-w-5xl mx-auto px-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#330066] mb-4">Quand faire appel à l'atelier CITY Électronique ?</h2>
+                    <div class="mx-auto max-w-4xl">
+                        <p class="text-lg text-gray-700 mb-6 text-center">
+                            Notre atelier s'adresse aux situations où une panne moteur devient <span class="font-semibold">une contrainte d'exploitation.</span>
+                        </p>
+                        <p class="text-base text-[#585B5D] mb-12 text-center max-w-3xl mx-auto leading-relaxed">
+                            Il s'agit d'une <span class="font-semibold text-[#202020]">réparation sur mesure</span> : diagnostic d'ingénierie puis proposition adaptée à la carte moteur concernée.
+                            Cette approche s'impose lorsque l'origine de panne semble située sur l'électronique embarquée et qu'un remplacement complet ne constitue pas une réponse immédiate.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                <span class="text-lg leading-snug"><span class="font-semibold">Moteur CVC à l'arrêt</span> ou fonctionnement dégradé</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                <span class="text-lg leading-snug"><span class="font-semibold">Carte électronique embarquée</span> obsolète, indisponible ou introuvable</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                <span class="text-lg leading-snug"><span class="font-semibold">Vitesse instable</span> ou commande moteur incohérente</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                <span class="text-lg leading-snug"><span class="font-semibold">Panne intermittente</span> sur ventilation, chauffage ou climatisation</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                <span class="text-lg leading-snug"><span class="font-semibold">Absence de solution constructeur</span> économiquement pertinente</span>
+                            </li>
+                        </ul>
+                        <p class="text-lg text-gray-700 mt-4">
+                            Dans ces contextes, remplacer le moteur sans confirmer l'origine électronique peut déplacer le problème sans le traiter.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 bg-white">
+                <div class="container max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-6">Pourquoi ce n'est pas un simple remplacement ?</h2>
+                    <div class="mx-auto">
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Sur un moteur CVC, la carte électronique embarquée pilote l'alimentation, la variation de vitesse, la commutation et une partie des sécurités. Lorsqu'elle dérive ou se dégrade, le moteur peut sembler hors service alors que la défaillance réelle se concentre sur l'électronique de commande.
+                        </p>
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Remplacer l'ensemble moteur et carte n'est donc pas toujours la réponse la plus juste. Le coût peut être élevé, la référence parfois indisponible, et l'échange complet ne documente pas nécessairement la cause initiale de la panne.
+                        </p>
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Des remplacements successifs sans analyse de cause racine peuvent même aggraver la situation : contrainte thermique non corrigée, étage de puissance surchargé, défaut périphérique ou environnement électrique dégradé.
+                        </p>
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Notre approche repose sur <span class="font-semibold">l'ingénierie de réparation</span>, pas sur le remplacement opportuniste d'un sous-ensemble.
+                        </p>
+
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Notre approche d'ingénierie de réparation :
+                        </p>
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-6">
+                            Chaque carte moteur confiée à l'atelier fait l'objet d'une analyse <span class="font-semibold">structurée</span>.
+                        </p>
+                        <div class="max-w-5xl mx-auto mb-6">
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">✔</span>
+                                    <span class="text-lg leading-snug">Analyse fonctionnelle de la carte moteur</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">✔</span>
+                                    <span class="text-lg leading-snug">Identification des composants de puissance et de commande</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">✔</span>
+                                    <span class="text-lg leading-snug">Vérification des causes de surchauffe ou de contrainte</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#ffcc00]">✔</span>
+                                    <span class="text-lg leading-snug">Fiabilisation des zones critiques</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="max-w-5xl mx-auto text-gray-700 text-lg mb-12">
+                            L'objectif n'est pas uniquement de remettre le moteur en service, mais de réduire <span class="font-semibold">durablement</span> le risque de récidive sur la carte concernée.
+                        </p>
+
+                        <div id="diagnostic" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch max-w-6xl mx-auto">
+                            <div class="group ce-card p-8 sm:p-10 flex flex-col h-full min-h-0 transition-shadow duration-200">
+                                <header class="shrink-0 text-center border-b border-gray-100 pb-6">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight px-1">
+                                        Diagnostic CVC
+                                    </h3>
+                                    <p class="text-4xl sm:text-5xl font-bold text-[#330066] mb-4 tabular-nums">
+                                        79 € <span class="font-semibold text-xl sm:text-2xl text-[#585B5D]">TTC</span>
+                                    </p>
+                                    <p class="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
+                                        Analyse technique de la carte électronique embarquée du moteur et évaluation de faisabilité.
+                                    </p>
+                                </header>
+
+                                <div class="flex-1 flex flex-col min-h-0 pt-6">
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Pré-analyse</span> et étude de faisabilité</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Identification des composants de commande ou de puissance défaillants</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Analyse progressive</span> des mécanismes de panne</span>
+                                        </li>
+                                    </ul>
+
+                                    <p class="font-semibold text-[#312760] text-sm uppercase tracking-wide mt-8 mb-3">Idéal pour</p>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Moteurs CVC standards ou semi-industriels</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Dysfonctionnements intermittents ou persistants</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Équipements hors garantie ou difficiles à remplacer</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="shrink-0 mt-auto pt-8 border-t border-gray-100">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://zr.city-electronique.fr/client-deal?diagnostic_type=expert" class="flex w-full min-h-[3rem] items-center justify-center gap-2 bg-[#ffcc00] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#e6b800] transition text-center text-sm sm:text-base leading-snug focus:outline-none focus:ring-2 focus:ring-[#330066] focus:ring-offset-2">
+                                        Lancer un diagnostic CVC
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="group ce-card p-8 sm:p-10 flex flex-col h-full min-h-0 transition-shadow duration-200">
+                                <header class="shrink-0 text-center border-b border-gray-100 pb-6">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight px-1">
+                                        Diagnostic CVC prioritaire
+                                    </h3>
+                                    <p class="text-4xl sm:text-5xl font-bold text-[#330066] mb-4 tabular-nums">
+                                        99 € <span class="font-semibold text-xl sm:text-2xl text-[#585B5D]">TTC</span>
+                                    </p>
+                                    <p class="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
+                                        Pour les équipements critiques nécessitant une prise en charge prioritaire.
+                                    </p>
+                                </header>
+
+                                <div class="flex-1 flex flex-col min-h-0 pt-6">
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Tout le diagnostic CVC</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Priorisation</span> de l'analyse</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Photos annotées</span> et retour plus documenté</span>
+                                        </li>
+                                    </ul>
+
+                                    <p class="font-semibold text-[#312760] text-sm uppercase tracking-wide mt-8 mb-3">Idéal pour</p>
+                                    <ul class="space-y-3 text-gray-700">
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Installations CVC critiques</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Sites professionnels avec impact d'exploitation</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                            <span class="text-base text-gray-700 leading-snug">Besoin de traçabilité technique accrue</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="shrink-0 mt-auto pt-8 border-t border-gray-100">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://zr.city-electronique.fr/client-deal?diagnostic_type=urgent" class="flex w-full min-h-[3rem] items-center justify-center gap-2 bg-[#ffcc00] text-black font-semibold px-4 py-3 rounded-lg hover:bg-[#e6b800] transition text-center text-sm sm:text-base leading-snug focus:outline-none focus:ring-2 focus:ring-[#330066] focus:ring-offset-2">
+                                        Lancer un diagnostic CVC prioritaire
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 ce-section-light">
+                <div class="container max-w-4xl mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-12">Comment se déroule la prise en charge ?</h2>
+                    <div class="mx-auto max-w-3xl">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl text-[#ffcc00]">1.</span>
+                                <span class="text-lg">Vous identifiez le symptôme ou le moteur concerné</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl text-[#ffcc00]">2.</span>
+                                <span class="text-lg">Vous choisissez le niveau de diagnostic adapté</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl text-[#ffcc00]">3.</span>
+                                <span class="text-lg">Nous analysons la carte électronique embarquée du moteur</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="font-bold text-xl text-[#ffcc00]">4.</span>
+                                <span class="text-lg">Un retour clair vous est transmis avant toute réparation</span>
+                            </li>
+                        </ul>
+                        <div class="mt-12">
+                            <div class="ce-note p-4">
+                                <p class="text-gray-700 font-semibold text-start">Aucune réparation n'est engagée sans validation préalable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 pt-16 bg-white">
+                <div class="container max-w-6xl mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-4">Cas courants de prise en charge</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-lg text-gray-700 text-center">
+                            Nous intervenons sur des moteurs CVC dont le comportement laisse suspecter une défaillance de la carte électronique embarquée plutôt qu'une panne purement mécanique.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="ce-card p-8">
+                            <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Climatisation gainable et split</h3>
+                            <p class="text-gray-700 text-base leading-relaxed mb-6">
+                                Moteurs de soufflage avec défaut de démarrage, vitesse irrégulière ou arrêt aléatoire lié à la carte de commande intégrée.
+                            </p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Commande de vitesse</span> incohérente</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Arrêts intermittents</span> en demande froid ou chaud</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug">Carte difficile à remplacer sur référence ancienne</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="ce-card p-8">
+                            <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Ventilo-convecteurs et unités de traitement d'air</h3>
+                            <p class="text-gray-700 text-base leading-relaxed mb-6">
+                                Moteurs de ventilation sur installations tertiaires ou techniques avec défaut récurrent sur régime, maintien en service ou pilotage.
+                            </p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Petite ou grande vitesse</span> non tenue</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Panne intermittente</span> sur ventilation ou reprise d'air</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug">Remplacement complet peu pertinent économiquement</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="ce-card p-8">
+                            <h3 class="text-xl sm:text-2xl font-bold text-[#330066] mb-4 leading-tight">Pompes à chaleur et systèmes de chauffage</h3>
+                            <p class="text-gray-700 text-base leading-relaxed mb-6">
+                                Moteurs et cartes associés soumis à humidité, température ou contraintes de charge, avec panne récurrente sur la commande.
+                            </p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Moteur à l'arrêt</span> alors que la carte pilote mal</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug"><span class="font-semibold">Composants de puissance</span> échauffés ou contraints</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="font-bold text-xl shrink-0 leading-none mt-0.5 text-[#54AE32]">✔</span>
+                                    <span class="text-base text-gray-700 leading-snug">Besoin d'arbitrer entre réparation et remplacement</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 pt-16 ce-section-light">
+                <div class="container max-w-5xl mx-auto px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#330066] mb-16">Réparation ou remplacement : comment choisir ?</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <p class="font-semibold text-gray-700 text-lg">
+                            Lorsque la mécanique du moteur reste exploitable et que la panne se concentre sur la carte électronique embarquée, une réparation de l'électronique peut éviter le remplacement complet de l'ensemble.
+                        </p>
+                        <p class="font-semibold text-gray-700 text-lg mt-3">
+                            Si le bobinage, l'isolement, le rotor ou l'environnement de charge présentent une défaillance structurelle, le remplacement complet peut rester la bonne décision. Le diagnostic sert à trancher entre ces deux voies.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4 justify-center">
+                            <a href="https://city-electronique.fr/choix-de-reparation-electronique/#diagnostic" class="text-xl text-center font-semibold px-8 py-3 rounded-lg ce-outline">
+                                Faire analyser une carte moteur CVC
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white py-24">
+                <div class="max-w-5xl mx-auto px-6">
+                    <div class="mb-12">
+                        <h2 class="text-4xl font-bold text-[#330066]">Questions fréquentes</h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">Réparez-vous les cartes de moteurs de climatisation ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                Oui. Nous intervenons sur des cartes électroniques embarquées dans des moteurs de climatisation, de ventilation et de chauffage, selon le type de moteur et la nature de la panne constatée.
+                            </div>
+                        </div>
+
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">Faut-il remplacer tout le moteur ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                Pas systématiquement. Si la défaillance est localisée sur la carte électronique embarquée et que le reste du moteur reste exploitable, une réparation ciblée peut être plus pertinente qu'un remplacement complet.
+                            </div>
+                        </div>
+
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">Intervenez-vous sur pompes à chaleur et ventilation ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                Oui. Nous prenons en charge des cartes de moteurs issues de pompes à chaleur, de ventilo-convecteurs, d'unités de traitement d'air et d'autres systèmes de ventilation lorsque l'origine électronique est suspectée.
+                            </div>
+                        </div>
+
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">Que se passe-t-il si la carte est obsolète ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                L'obsolescence ou l'indisponibilité constructeur fait partie des situations qui justifient un diagnostic d'ingénierie. Nous évaluons alors si la carte peut être réparée et fiabilisée dans des conditions techniquement pertinentes.
+                            </div>
+                        </div>
+
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">La réparation est-elle garantie ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                Oui. Toute réparation validée est couverte par une garantie, définie selon le contexte d'utilisation et les conditions de fonctionnement de l'équipement.
+                            </div>
+                        </div>
+
+                        <div x-data="{ open: false }" class="faq-item">
+                            <button type="button" class="w-full flex justify-between items-center px-6 py-4 text-left" @click="open = !open">
+                                <span class="text-gray-900 font-medium text-lg">Comment savoir si la panne vient de la carte électronique ?</span>
+                                <span class="text-2xl font-bold text-[#330066] transition-transform duration-200" :class="open ? 'rotate-45' : ''">+</span>
+                            </button>
+                            <div x-show="open" class="px-6 pb-4 text-gray-700" style="display: none;">
+                                Un moteur à l'arrêt, une vitesse incohérente ou un défaut intermittent ne suffisent pas à eux seuls. Un contrôle terrain reste nécessaire. Si l'origine semble électronique, nous prenons ensuite le relais sur la carte embarquée.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-[#f9f9f9] text-[#202020] mt-12">
+            <div class="max-w-7xl mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h5 class="text-[#330066] font-bold mb-4">City Électronique</h5>
+                        <p class="text-sm text-[#585B5D] mb-2">
+                            Adresse sur rendez-vous uniquement<br>
+                            26 chemin de la Violette<br>
+                            31240 L'Union<br>
+                            France
+                        </p>
+                        <p class="text-sm text-[#585B5D] mb-2">
+                            Du lundi au vendredi : 10h00 - 16h00<br>
+                            Fermé le samedi et le dimanche
+                        </p>
+                        <p class="text-sm text-[#585B5D] mb-2">
+                            Accueil téléphonique : <a href="tel:+33554547749" class="underline hover:text-[#330066]">+33 5 54 54 77 49</a>
+                        </p>
+                        <p class="text-sm text-[#585B5D]">
+                            Souscription via formulaire en ligne : disponible du lundi au dimanche
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="text-[#312760] font-bold mb-4">Navigation</h5>
+                        <ul class="space-y-2 text-sm text-[#585B5D]">
+                            <li><a href="https://city-electronique.fr/" class="footer-link">Accueil</a></li>
+                            <li><a href="https://city-electronique.fr/choix-de-reparation-electronique/" class="footer-link">L'Atelier</a></li>
+                            <li><a href="https://city-electronique.fr/valorisation" class="footer-link">Valorisation</a></li>
+                            <li><a href="https://city-electronique.fr/les-questions-frequentes/" class="footer-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="text-[#312760] font-bold mb-4">Bon à savoir</h5>
+                        <ul class="space-y-2 text-sm text-[#585B5D]">
+                            <li><a href="https://city-electronique.fr/qu-est-ce-que-le-taux-de-reparabilite/" class="footer-link">Qu'est-ce que le taux de réparabilité</a></li>
+                            <li><a href="https://city-electronique.fr/2024/12/27/comment-nous-evaluons-les-chances-de-reparation-chez-city-electronique/" class="footer-link">Comment nous évaluons les chances de réparation</a></li>
+                            <li><a href="https://city-electronique.fr/2024/12/10/technicien-vs-ingenieur-comprendre-la-difference-cruciale-dans-la-reparation-electronique/" class="footer-link">Différence entre technicien et ingénieur</a></li>
+                            <li><a href="https://city-electronique.fr/2022/09/10/pre-etude-electronique-on-vous-explique-tout/" class="footer-link">La pré-étude c'est quoi</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="my-8 border-[#dcdcdc]">
+
+                <div class="text-center mb-2">
+                    <nav class="flex flex-wrap justify-center gap-6 text-sm text-[#585B5D]">
+                        <a href="https://city-electronique.fr/" class="footer-link">&copy; 2026 CITY Électronique. Tous droits réservés.</a>
+                        <a href="https://city-electronique.fr/mentions-legales/" class="footer-link">Mentions légales</a>
+                        <a href="https://city-electronique.fr/politique-de-confidentialite/" class="footer-link">Politique de confidentialité</a>
+                        <a href="https://city-electronique.fr/conditions-generales-de-vente/" class="footer-link">Conditions générales de vente</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+        });
+    </script>
 </body>
 </html>
